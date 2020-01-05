@@ -11,6 +11,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_LEG = "leg";
     public static final String TABLE_TURN = "turn";
 
+
+
     // Game Table columns
     public static final String GAME_ID = "_id";
     public static final String game_date = "date";
@@ -18,6 +20,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String game_player2 = "player2_id";
     public static final String game_num_legs = "max_legs";
 
+    // Creating table query
+    private static final String CREATE_GAME_TABLE = "create table " + TABLE_GAME + "(" + GAME_ID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, " + game_date + " DATETIME NOT NULL, " + game_player1 + " INTEGER NOT NULL, "  + game_player2 + " INTEGER NOT NULL, " + game_num_legs + " INTEGER);";
     // Player Table columns
 
     public static final String PLAYER_ID = "_id";
@@ -46,10 +51,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db){
-
+        // game table
+        db.execSQL(CREATE_GAME_TABLE);
+        db.execSQL("CREATE INDEX 'date_idx' ON 'game' ('date' ASC)");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAME);
+        onCreate(db);
     }
 }

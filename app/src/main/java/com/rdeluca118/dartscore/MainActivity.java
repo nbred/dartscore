@@ -23,4 +23,6 @@ public class MainActivity extends AppCompatActivity {
     public void doDatabase(View v){
         startActivity(new Intent(this, DataActivity.class));
     }
-}
+
+    public void shutDown(View view) {
+    }}

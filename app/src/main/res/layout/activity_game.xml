@@ -9,7 +9,7 @@
     android:baselineAligned="false"
     android:orientation="horizontal"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".DataActivity">
 
     <LinearLayout
         android:id="@+id/option_pane"
