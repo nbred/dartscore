@@ -6,9 +6,7 @@ import android.os.Bundle;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.os.Bundle;
 import android.widget.SimpleCursorAdapter;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,6 +54,7 @@ public class DataActivity extends AppCompatActivity {
 
                 String id = idTextView.getText().toString();
                 String title = titleTextView.getText().toString();
+
                 String desc = descTextView.getText().toString();
 
                 Intent modify_intent = new Intent(getApplicationContext(), ModifyCountryActivity.class);
