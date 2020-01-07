@@ -29,19 +29,19 @@ public class DBManager {
     }
 
     public void insert(String name, String desc) {
-//        ContentValues contentValue = new ContentValues();
+       ContentValues contentValue = new ContentValues();
 //        contentValue.put(DatabaseHelper.SUBJECT, name);
 //        contentValue.put(DatabaseHelper.DESC, desc);
 //        database.insert(DatabaseHelper.TABLE_NAME, null, contentValue);
     }
 
     public Cursor fetch() {
-//        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SUBJECT, DatabaseHelper.DESC };
-//        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
-//        if (cursor != null) {
-//            cursor.moveToFirst();
-//        }
-        return null; //cursor;
+        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SUBJECT, DatabaseHelper.DESC };
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 
     public int update(long _id, String name, String desc) {
